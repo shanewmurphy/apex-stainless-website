@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Logo from "@/public/Logo-Page.svg";
-import Diageo from "@/public/frama-logos/Diageo.svg";
-import Kerry from "@/public/frama-logos/Kerry.svg";
-import Lilly from "@/public/frama-logos/Lilly.svg";
-import Pfizer from "@/public/frama-logos/Pfizer.svg";
+import Diageo from "@/public/pharma-logos/Diageo.svg";
+import Kerry from "@/public/pharma-logos/Kerry.svg";
+import Lilly from "@/public/pharma-logos/Lilly.svg";
+import Pfizer from "@/public/pharma-logos/Pfizer.svg";
 
 const logos = [
-  { name: "Diageo", src: Diageo, className: "h-6 md:h-8 max-h-[4vh]" },
+  { name: "Diageo", src: Diageo, className: "h-6 md:h-8 max-h-[3.4vh]" },
   { name: "Kerry", src: Kerry, className: "h-10 md:h-12 max-h-[7vh]" },
   { name: "Lilly", src: Lilly, className: "h-10 md:h-12 max-h-[7vh]" },
   { name: "Pfizer", src: Pfizer, className: "h-10 md:h-12 max-h-[7vh]" },
@@ -15,7 +15,7 @@ const logos = [
 export default function IntroText() {
   return (
     <div className="h-screen w-full bg-black flex flex-col">
-      <div className="flex h-[80vh] w-full bg-gray-background gap-8 px-24 items-center rounded-b-[5vw]">
+      <div className="flex h-[85vh] w-full bg-gray-background gap-8 px-24 items-center rounded-b-[5vw]">
         <div className="w-[25vw]">
           <div className="flex items-center justify-center">
             <Image
@@ -41,7 +41,7 @@ export default function IntroText() {
           </p>
         </div>
       </div>
-      <div className="bg-[#d9d9d9] h-[20vh] w-full rounded-[3vw] flex items-center justify-around px-8 md:px-16 lg:px-24">
+      <div className="bg-[#d9d9d9] h-[15vh] w-full rounded-[3vw] flex items-center justify-around px-8 md:px-16 lg:px-24">
         {logos.map((logo, index) => (
           <div
             key={index}

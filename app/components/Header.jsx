@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Typography } from "@/components/ui/typography";
+import Nav from "./Shared/nav";
 
 export default function Header() {
   const stripesContainerRef = useRef(null);
@@ -11,6 +11,7 @@ export default function Header() {
   const titleRef = useRef(null);
   const logoContainerRef = useRef(null);
   const logoRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     // GSAP context helps with clean up and prevents issues in React Strict Mode / Fast Refresh
@@ -20,6 +21,7 @@ export default function Header() {
       gsap.set(heroImgRef.current, { scale: 1.15, opacity: 0 });
       gsap.set(titleRef.current, { opacity: 0, y: 35 });
       gsap.set(logoRef.current, { opacity: 1, scale: 1 });
+      gsap.set(navRef.current, { opacity: 0, y: -20 });
 
       const tl = gsap.timeline({ delay: 1 });
 
@@ -67,14 +69,15 @@ export default function Header() {
         0.2,
       );
 
-      // 4. Typography Text Animation (fades/slides up as stripes clear the center)
+      // 4. Typography Text & Navigation Animation (fades/slides as stripes clear the center)
       tl.to(
-        titleRef.current,
+        [titleRef.current, navRef.current],
         {
           opacity: 1,
           y: 0,
           duration: 1.4,
           ease: "power3.out",
+          stagger: 0.15,
         },
         0.8, // Starts at 0.8s into the timeline
       );
@@ -85,6 +88,7 @@ export default function Header() {
 
   return (
     <header className="relative w-full h-screen min-h-[600px] overflow-hidden bg-zinc-950 flex flex-col text-white">
+      <Nav ref={navRef} />
       {/* 1. STAGGERED REVEAL STRIPES */}
       <div
         ref={stripesContainerRef}
